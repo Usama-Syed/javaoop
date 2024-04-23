@@ -3,6 +3,8 @@
  */
 package com.training.javaoop.model;
 
+import java.util.Arrays;
+
 /**
  * 
  */
@@ -14,15 +16,16 @@ public class Car {
 	
 	private int constructionYear;
 	
-	private final String SUPPLY_TYPE = "Petrol";
-	
+	private SupplyType supplyType;
+		
 	private int portNumber;
 	
 	private static boolean automated = true;
 	
+	private Tier[] tiers = new Tier[4];
+	
 	public Car() {
 		super();
-		//this.SUPPLY_TYPE = "Petrol";
 	}
 	
 	/**
@@ -31,10 +34,12 @@ public class Car {
 	 * @param supplyType
 	 * @param portNumber
 	 */
-	public Car(String model, int constructionYear, int portNumber) {
+	public Car(String model, int constructionYear, SupplyType supplyType, int portNumber) {
 		this.model = model;
 		this.constructionYear = constructionYear;
+		this.supplyType = supplyType;
 		this.portNumber = portNumber;
+		tiers[0] = new Tier();
 	}
 	
 	/**
@@ -68,9 +73,17 @@ public class Car {
 	/**
 	 * @return the supplyType
 	 */
-	public String getSupplyType() {
-		return SUPPLY_TYPE;
+	public SupplyType getSupplyType() {
+		return supplyType;
 	}
+	
+	/**
+	 * @param supplyType the supplyType to set
+	 */
+	public void setSupplyType(SupplyType supplyType) {
+		this.supplyType = supplyType;
+	}
+
 	
 	/**
 	 * @return the portNumber
@@ -98,6 +111,26 @@ public class Car {
 	 */
 	public static void setAutomated(boolean automated) {
 		Car.automated = automated;
+	}
+
+	/**
+	 * @return the tiers
+	 */
+	public Tier[] getTiers() {
+		return tiers;
+	}
+
+	/**
+	 * @param tiers the tiers to set
+	 */
+	public void setTiers(Tier[] tiers) {
+		this.tiers = tiers;
+	}
+
+	@Override
+	public String toString() {
+		return "Car [model=" + model + ", constructionYear=" + constructionYear + ", supplyType=" + supplyType
+				+ ", portNumber=" + portNumber + ", tiers=" + Arrays.toString(tiers) + "]";
 	}
 	
 }

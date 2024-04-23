@@ -13,13 +13,13 @@ public final class Pizza {
 
 	private final int idPizza;
 	
-	private final String name;
+	private final String pizzaName;
 	
 	private final List<String> ingredients;
 	
-	private Pizza(int idPizza, String name, List<String> ingredients) {
+	private Pizza(int idPizza, String pizzaName, List<String> ingredients) {
 		this.idPizza = idPizza;
-		this.name = name;
+		this.pizzaName = pizzaName;
 		this.ingredients = new ArrayList<String>(ingredients);
 	}
 	
@@ -50,9 +50,9 @@ public final class Pizza {
 	 * @return the name
 	 */
 	public String getName() {
-		return name;
+		return pizzaName;
 	}
-
+	
 	/**
 	 * @return the ingredients
 	 */
