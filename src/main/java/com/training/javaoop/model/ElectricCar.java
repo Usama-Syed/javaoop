@@ -76,7 +76,25 @@ public class ElectricCar extends Car {
 	public void setBatteryCharged(boolean batteryCharged) {
 		this.batteryCharged = batteryCharged;
 	}
-
+	
+	@Override
+	public boolean moveCar() {
+		if (batteryCharged) {
+			super.moveCar();
+		}
+		
+		return isStarted() && batteryCharged;
+	}
+	
+	@Override
+	public boolean moveCar(String location) {
+		if (batteryCharged) {
+			super.moveCar(location);
+		}
+		
+		return isStarted() && batteryCharged;
+	}
+	
 	@Override
 	public String toString() {
 		return super.toString() + "\nElectricCar [batteryType=" + batteryType + ", batteryLevel=" + batteryLevel + ", batteryCharged="
